@@ -1,0 +1,104 @@
+---
+title: 'Mac Os X Command Line Tools to Edit Media'
+date: '2020-04-12'
+summary: 'Mac - Resize, rotate images, cut audio and video, change video resolution and format, extract audio, with these simple command line tools'
+tags: ['Productivity']
+images: ['/static/images/others/mac.png']
+layout: PostBanner
+authors: ['Bhrigu']
+---
+
+Sometimes it is quite convenient and quick to edit media files (for eg. resize images) via command line. Below are such helpful tools for Mac OS X. 
+
+
+## Table of contents
+1. [Images](#images)
+2. [Videos](#videos)
+3. [Audio](#audio)
+
+## Images <a name="images"></a>
+Mac has an inbuild CLI tool called *sips*. It modifies the images in-place. To save the updated image in a separate copy, use `--out [outfilename]` in the command.
+
+#### Re-size image
+`sips -z [height] [width] file.png`: Re-sizes image to specified dimensions, which may alter the actual aspect ratio.
+
+`sips -Z [heightwidth] file.png`: This maintains the aspect ratio and [heightwidht] value will be the maximum value that can be for the height and width of the image (the other dimension will get set acc to its aspect ratio).
+
+Example
+
+    sips -z 640 480 file1.png
+    sips -Z 640 file2.png
+
+
+You can view the current dimension details of an image by looking at the image's info.
+
+
+#### Rotate image
+`sips -r [degrees] file.png`
+
+Example:
+
+    sips -r 90 file.jpg --out rotatedfile.jpg
+
+
+Other options:  
+`-f [horizontal or vertical]`: Flips the image  
+`-c [pixelsH pixelsV]`: Crops the image to height and width  
+Check out all the options available by doing `sips --help`
+
+
+## Videos <a name="videos"></a>
+For video editing via command line, you'll have to install a tool called `ffmpeg` which will make your life easier.
+
+You can install using Homebrew:  
+
+    $ brew install ffmpeg
+
+
+#### Change format
+Eg. convert mp4 to mov
+
+    ffmpeg -i input.mp4 output.mov
+
+*Tip: You can also make gifs from video using this command*
+
+
+#### Change resolution / dimension
+Eg. Change video resolution to 1280x720. Can be used to reduce the resolution and therefore the size
+
+    ffmpeg -i input.mp4 -c:a copy -s 1280x720 output.mp4
+
+#### Trim video
+Eg. 1) Trim from 00:00:10 to 00:00:20 (hh:mm:ss)
+
+    ffmpeg -i input.mp4 -ss 00:00:10 -to 00:00:20 -c copy output.mp4
+
+Eg. 2) Trim ten seconds starting from 00:01:00
+
+    ffmpeg -i input.mp4 -c:av copy -ss 00:01:00 -t 10 output.mp4
+
+
+#### Extract audio from video
+    ffmpeg -i clip.mp4 -vn audio_only.mp3
+
+
+## Audio <a name="audio"></a>
+We are going to use the same command line tool *ffmpeg* to edit audio files too. If you don't have it, install it via Homebrew.
+
+    $ brew install ffmpeg
+
+The commands are same as the commands for editing the videos actually.
+
+#### Trim audio
+Eg. Trim from 00:00:20 to 00:00:40 (hh:mm:ss)
+
+    ffmpeg -ss -i input.mp3 00:00:20 -to 00:00:40 -c copy output.mp3
+
+
+#### Change format
+Eg. convert mp3 to wav
+
+    ffmpeg -i input.mp3 output.wav
+
+
+That's all for now. Hope you find these useful and get comfortable and quick with editing media files via Command Line. 

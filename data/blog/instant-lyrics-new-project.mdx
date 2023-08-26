@@ -1,0 +1,53 @@
+---
+title: 'Instant Lyrics New Project'
+summary: 'Created a python app that shows lyrics of currently playing spotify song instantly'
+date: '2017-03-13'
+authors: ['Bhrigu']
+lastmod: '2017-03-20 17:48:01 +0530'
+tags: ['Projects', 'Music']
+layout: PostSimple
+images: ['/static/images/lyrics/lyrics.png']
+---
+
+I love listening to music on Spotify. There were times I wished that I could instantly view lyrics of the song being played on Spotify, without going through the trouble of browsing the net. Well, not anymore. 
+
+
+
+I've created a python application that allows me to do so. It can pick up the currently playing Spotify song details, scrape the lyrics from the internet, and display it to you nicely in a separate window. All this in just one click. It's called [Instant-Lyrics](http://bhrigu.me/Instant-Lyrics).
+
+
+It's easy to install and get the app running. Check it out.
+
+![Image](https://cloud.githubusercontent.com/assets/6123105/23824316/3fe58044-069a-11e7-804e-180ea4041002.jpeg)
+
+My brother had worked on a similar project ([SpotifyLyrics](https://github.com/yask123/SpotifyLyrics)). But that app was only for Mac users, and I work on Linux. I wanted to create an app that could run on any Linux distro/flavor. Plus, I added other features like fetching the lyrics of any entered song. I added threading such that the lyrics window gets opened instantly, while the app fetches for lyrics in a separate thread.
+
+
+I used Python Gtk+3 to implement GUIs. Gtk+ can work on any UNIX-like platforms, Windows, and OSX.
+
+
+I've tested the app on several Linux distros/flavors like Ubuntu, Elementary OS, Arch Linux and Kubuntu.
+
+
+## Update
+
+This project got featured on [OMG! Ubuntu](http://www.omgubuntu.co.uk/). Check out their post about Instant-Music [here](http://www.omgubuntu.co.uk/2017/03/get-lyrics-spotify-track-ubuntu-desktop). This was quite a deal for me.
+
+
+![Image](/static/images/lyrics/instant-tweet.png)
+
+[Tweet Link](https://twitter.com/omgubuntu/status/843606668088770561)
+
+
+
+Also, 160+ points on [reddit post](https://www.reddit.com/r/Python/comments/60a9oe/shows_lyrics_of_currently_playing_spotify_song_or/)
+
+
+![Image](/static/images/lyrics/reddit.png)
+
+
+Quick Links:
+
+* [Project page](http://bhrigu.me/Instant-Lyrics)
+
+* [GitHub Repo](https://github.com/bhrigu123/Instant-Lyrics)

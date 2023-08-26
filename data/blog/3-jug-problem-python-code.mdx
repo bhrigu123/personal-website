@@ -1,0 +1,154 @@
+---
+title: '3 Jug Problem Python Code'
+date: '2016-04-04'
+authors: ['Bhrigu']
+lastmod: '2017-02-13 19:57:57 +0530'
+summary: 'Python implementation of 3 jug water problem. Solution explanation and code, written in Python and using Depth First Search (DFS)'
+tags: ['Programming']
+images: ['/static/images/jug/jug.jpg']
+---
+
+I came across this image by a Facebook page ([Curiosity](https://www.facebook.com/curiositydotcom/)), which asked a solution to the famous Water Jug problem, involving 3 jugs.
+
+
+
+**Problem**: Given 3 jugs of capacites: 12, 8 and 5 litres. Our 12 L jug is completely filled. Using these 3 jugs split the water to obtain exactly 6 Litres.
+
+So I thought of writing a code in python to obtain the solution to the problem, instead of doing hit and trial.
+
+
+I used DFS to search through all the states of the jugs. At each state, we'll have certain choices of emptying water from one jug into another. We'll try each choice, calling our function for each state, and if we reach the goal state, we stop.
+
+[*Note that the given program could be made smaller/modular, but it is more understandable given this way. Also, DFS might not give an optimal (best path) solution. For that use BFS*]
+
+
+
+
+``` python 3 Jug Problem
+# 3 water jugs capacity -> (x,y,z) where x>y>z
+# initial state (12,0,0)
+# final state (6,6,0)
+
+
+capacity: (12,8,5) 
+# Maximum capacities of 3 jugs -> x,y,z
+x: capacity[0]
+y: capacity[1]
+z: capacity[2]
+
+# to mark visited states
+memory: {}
+
+# store solution path
+ans: []
+
+def get_all_states(state):
+	# Let the 3 jugs be called a,b,c
+a: state[0]
+b: state[1]
+c: state[2]
+
+	if(a==6 and b==6):
+		ans.append(state)
+		return True
+
+	# if current state is already visited earlier
+	if((a,b,c) in memory):
+		return False
+
+	memory[(a,b,c)] = 1
+
+	#empty jug a
+	if(a>0):
+		#empty a into b
+		if(a+b<=y):
+			if( get_all_states((0,a+b,c)) ):
+				ans.append(state)
+				return True
+		else:
+			if( get_all_states((a-(y-b), y, c)) ):
+				ans.append(state)
+				return True
+		#empty a into c
+		if(a+c<=z):
+			if( get_all_states((0,b,a+c)) ):
+				ans.append(state)
+				return True
+		else:
+			if( get_all_states((a-(z-c), b, z)) ):
+				ans.append(state)
+				return True
+
+	#empty jug b
+	if(b>0):
+		#empty b into a
+		if(a+b<=x):
+			if( get_all_states((a+b, 0, c)) ):
+				ans.append(state)
+				return True
+		else:
+			if( get_all_states((x, b-(x-a), c)) ):
+				ans.append(state)
+				return True
+		#empty b into c
+		if(b+c<=z):
+			if( get_all_states((a, 0, b+c)) ):
+				ans.append(state)
+				return True
+		else:
+			if( get_all_states((a, b-(z-c), z)) ):
+				ans.append(state)
+				return True
+
+	#empty jug c
+	if(c>0):
+		#empty c into a
+		if(a+c<=x):
+			if( get_all_states((a+c, b, 0)) ):
+				ans.append(state)
+				return True
+		else:
+			if( get_all_states((x, b, c-(x-a))) ):
+				ans.append(state)
+				return True
+		#empty c into b
+		if(b+c<=y):
+			if( get_all_states((a, b+c, 0)) ):
+				ans.append(state)
+				return True
+		else:
+			if( get_all_states((a, y, c-(y-b))) ):
+				ans.append(state)
+				return True
+
+	return False
+
+initial_state = (12,0,0)
+print("Starting work...\n")
+get_all_states(initial_state)
+ans.reverse()
+for i in ans:
+	print(i)
+
+```
+
+``` sh Output
+Starting work...
+
+(12, 0, 0)
+(4, 8, 0)
+(0, 8, 4)
+(8, 0, 4)
+(8, 4, 0)
+(3, 4, 5)
+(3, 8, 1)
+(11, 0, 1)
+(11, 1, 0)
+(6, 1, 5)
+(6, 6, 0)
+```
+
+
+and that's pretty much it.
+
+Leave in the comments if you have anything in mind.

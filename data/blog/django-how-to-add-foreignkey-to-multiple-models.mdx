@@ -1,0 +1,110 @@
+---
+title: 'Django How to Add Foreignkey to Multiple Models'
+date: '2016-05-21'
+lastmod: '2016-05-21 01:28:37 +0530'
+summary: 'Tutorial with example to show how to add foreign key from a model to multiple models'
+tags: ['Django']
+images: ['/static/images/djangoforeignkey/python-django.png']
+authors: ['Bhrigu']
+---
+
+Test string1
+
+Basically, how to make relation to more than one type of model, using one ForeignKey. (using *contenttypes* app and *Generic Relations*)
+
+Suppose you have two models: `Article` and `Post` 
+
+
+
+``` python models.py
+class Article(models.Model):
+content: models.CharField(max_length=100)
+
+class Post(models.Model):
+content: models.CharField(max_length=100)
+```
+
+Now, we’ll have a `Comment` model. Here, both an `Article` or a `Post` can have a comment. So, how to add a ForeignKey value in the Comment model, which could point to either of the above models.
+
+We’ll use the concept of *Generic Relation*, which allows us to do so. Django includes a [contenttypes](https://docs.djangoproject.com/en/dev/ref/contrib/contenttypes/#module-django.contrib.contenttypes) application, and relations between your models and ContentType model in that application can also be used to enable “generic” relationships between an instance of one of your models and instances of any model you have installed.
+
+The format of our **Comment** model will be like:
+
+``` python models.py
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+
+class Comment(models.Model):
+comm: models.CharField(max_length=50)
+
+	content_type =   models.ForeignKey(ContentType)
+	object_id = models.PositiveIntegerField()
+	content_object=GenericForeignKey('content_type', 'object_id')
+```
+
+(The last three lines will be same every time you want to use generic relations like this.)
+
+
+
+Now, we can relate a `Comment` object to any kind of model, by sending it which *model* we have to relate it to in the `content_type` parameter, and the *id* of the object of that model to relate to in the `object_id` parameter.
+(or by just sending the object to relate to, to the *content_object* parameter of `Comment`, as shown below)
+
+Now, we’ll create the **Comment** instances, and relate it to either an **Article** instance, or a **Post** instance.
+
+To relate a *Comment* to an *Article* instance:
+
+``` python shell
+>>> art = Article.objects.get(id=1)
+>>> c = Comment(content_object=art, comm='asdf')
+>>> c.save()
+>>> c.content_object
+<Article: article1>
+```
+
+To relate a *Comment* to a *Post* instance:
+
+``` python shell
+>>> pos= Post.objects.get(id=1)
+>>> c= Comment(content_object=pos, comm='new comment')
+>>> c.save()
+>>> c.content_object
+<Post: post1>
+```
+
+
+
+### Reverse Generic Relations
+
+Now, to get all the comments related to an `Article` or a `Post`, we can use the **GenericRelation** class for this. 
+
+We need to define a new attribute under the Article and Post models. Add the attribute for reverse query under your models as:
+
+``` python models.py
+from django.contrib.contenttypes.fields import GenericRelation
+
+class Article(models.Model):
+content: models.CharField(max_length=100)
+comments: GenericRelation(Comment)
+
+class Post(models.Model):
+content: models.CharField(max_length=100)
+comments: GenericRelation(Comment)
+```
+
+Now, a query of `model_object.comments.all()` will give all the comments related to that object. Like, if *art* is an Article instance, and *pos* is a Post instance:
+
+``` python shell
+>>> art.comments.all()
+<QuerySet [<Comment: asdf>, <Comment: test>]>
+
+>>> pos.comments.all()
+<QuerySet [<Comment: new_comment>, <Comment: test2>]>
+```
+
+That is all you need to know for basic working required for ‘relating an instance to multiple Models’.
+
+You can know more about contenttypes application, ContentType model and GenericRelations on their docs: [The contenttypes framework](https://docs.djangoproject.com/en/dev/ref/contrib/contenttypes/).
+
+
+
+> *This article is also posted on my Medium account at: [Django: How to add foreign key to multiple models](https://medium.com/@bhrigu/django-how-to-add-foreignkey-to-multiple-models-394596f06e84#.vtjdo4vz5)*
