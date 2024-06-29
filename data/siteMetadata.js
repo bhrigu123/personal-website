@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'Bhrigu\'s personal website and blog',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://bhrigs.vercel.app',
+  siteUrl: 'https://bhrigu.me',
   siteRepo: 'https://github.com/bhrigu123/personal-website',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',

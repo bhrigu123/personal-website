@@ -22,11 +22,20 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        sans: ['Outfit', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.pink,
+        primary: colors.violet,
         gray: colors.gray,
+        
+      },
+      width: {
+        4.5: '1.125rem',
+        5.5: '1.375rem',
+      },
+      height: {
+        4.5: '1.125rem',
+        5.5: '1.375rem',
       },
       typography: ({ theme }) => ({
         DEFAULT: {
