@@ -77,6 +77,19 @@ function createTagCount(allBlogs) {
   writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
 }
 
+function createChangeLogs(allChangeLogEntries) {
+  const changeLogs: string[] = [];
+  allChangeLogEntries.forEach((changeLogEntry) => {
+    if (changeLogEntry.changeLogId) {
+      var changeLogId = changeLogEntry.changeLogId;
+      if (!changeLogs.includes(changeLogId)) {
+        changeLogs.push(changeLogId);
+      }
+    }
+  })
+  writeFileSync('./app/change-log-data.json', JSON.stringify(changeLogs));
+}
+
 function createSearchIndex(allBlogs) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
@@ -125,6 +138,18 @@ export const Blog = defineDocumentType(() => ({
   },
 }))
 
+export const ChangeLogEntry = defineDocumentType(() => ({
+  name: 'ChangeLogEntry',
+  filePathPattern: 'changelog/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    changeLogId: { type: 'string', required: true},
+    title: { type: 'string', required: true },
+    date: { type: 'date' },
+    year: {type: 'string' }
+  }
+}))
+
 export const Authors = defineDocumentType(() => ({
   name: 'Authors',
   filePathPattern: 'authors/**/*.mdx',
@@ -145,7 +170,7 @@ export const Authors = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors],
+  documentTypes: [Blog, Authors, ChangeLogEntry],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -166,8 +191,9 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
+    const { allBlogs, allChangeLogEntries } = await importData()
     createTagCount(allBlogs)
     createSearchIndex(allBlogs)
+    createChangeLogs(allChangeLogEntries)
   },
 })
