@@ -37,8 +37,9 @@ const IntroSection: React.FC = () => {
   return (
     <section className="py-16 bg-gray-100 overflow-hidden">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-6">Hi, it's me</h1>
+        <h1 className="text-4xl font-bold mb-6">Hello 👋🏼</h1>
         <p className="text-lg mb-8">
+          I am Bhrigu. I am a software engineer, 
           I'm a software engineer passionate about web development. This blog is where I share my
           thoughts on technology, travel, and life.
         </p>
