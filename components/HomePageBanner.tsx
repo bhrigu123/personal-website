@@ -12,7 +12,7 @@ interface CarouselImage {
 }
 
 const images: CarouselImage[] = [
-  { src: '/image1.jpg', alt: 'Image 1', hoverText: 'Paris', link: '/paris' },
+  { src: '/static/images/tea.jpeg', alt: 'Tea', hoverText: 'Tea', link: '/tea' },
   { src: '/image2.jpg', alt: 'Image 2', hoverText: 'New York', link: '/new-york' },
   { src: '/image3.jpg', alt: 'Image 3', hoverText: 'Workspace', link: '/workspace' },
   { src: '/image4.jpg', alt: 'Image 4', hoverText: 'Mountains', link: '/mountains' },
@@ -35,14 +35,21 @@ const IntroSection: React.FC = () => {
   }
 
   return (
-    <section className="py-16 bg-gray-100 overflow-hidden">
+    <section className="py-16 overflow-hidden">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-6">Hello 👋🏼</h1>
-        <p className="text-lg mb-8">
-          I am Bhrigu. I am a software engineer, 
-          I'm a software engineer passionate about web development. This blog is where I share my
-          thoughts on technology, travel, and life.
-        </p>
+        <div className='w-full lg:w-2/3'>
+          <h1 className="prose dark:prose-invert text-4xl font-bold mb-6">Hello 👋🏼</h1>
+          <p className="prose dark:prose-invert text-lg mb-8">
+            I am Bhrigu and I am a software development engineer in Seattle.  
+            I like to build apps on the web and mobile. <br /><br />
+            
+            I also enjoy writing and I like venturing into productivity tools, routines, and habits. 
+
+            This website is just me with my raw thoughts and for sharing my writings around tech, 
+            development, and philosophies.
+            
+          </p>
+        </div>
         <div className="relative -mx-8">
           {' '}
           {/* Negative margin to extend beyond container */}
