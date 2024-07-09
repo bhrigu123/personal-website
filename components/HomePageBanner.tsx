@@ -13,7 +13,7 @@ interface CarouselImage {
 }
 
 const images: CarouselImage[] = [
-  { src: '/static/images/homepagebanner/chai.jpeg',alt: 'chai'},
+  { src: '/static/images/homepagebanner/chai.jpeg', alt: 'chai' },
   { src: '/static/images/homepagebanner/drums.png', alt: 'drums' },
   { src: '/static/images/homepagebanner/coffee.jpeg', alt: 'coffee' },
   { src: '/static/images/homepagebanner/guitar.jpg', alt: 'guitar' },
@@ -27,7 +27,7 @@ const IntroSection: React.FC = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
-      const scrollAmount = carouselRef.current.offsetWidth;
+      const scrollAmount = carouselRef.current.offsetWidth
       if (direction === 'left') {
         carouselRef.current.scrollLeft -= scrollAmount
       } else {
@@ -39,17 +39,14 @@ const IntroSection: React.FC = () => {
   return (
     <section className="py-16 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className='w-full lg:w-2/3'>
+        <div className="w-full lg:w-2/3">
           <h1 className="prose dark:prose-invert text-4xl font-bold mb-6">Hello 👋🏼</h1>
           <p className="prose dark:prose-invert text-lg mb-8">
-            I am Bhrigu and I am a software development engineer in Seattle.
-            I like to build apps on the web and mobile. <br /><br />
-
-            I also enjoy writing and I like venturing into productivity tools, routines, and habits.
-
-            This website is just me with my thoughts and a medium for sharing my writings around technology,
-            development, and philosophies.
-
+            I am Bhrigu and I am a software development engineer in Seattle. I like to build apps on
+            the web and mobile. <br />
+            <br />I also enjoy writing and I like venturing into productivity tools, routines, and
+            habits. This website is just me with my thoughts and a medium for sharing my writings
+            around technology, development, and philosophies.
           </p>
         </div>
         <div className="relative -mx-8">
@@ -125,13 +122,19 @@ const IntroSection: React.FC = () => {
           </button>
         </div>
         <div className="flex space-x-3 pt-6">
-              <h2 className='text-xl'>Find me on: </h2>
-              <SocialIcon kind="mail" href='mailto:captain.bhrigu@gmail.com' />
-              <SocialIcon kind="youtube" href='https://www.youtube.com/channel/UCqgqCOWlxpYDPH5whE6mb3Q' />
-              <SocialIcon kind="github" href='https://github.com/bhrigu123' />
-              <SocialIcon kind="linkedin" href='https://www.linkedin.com/in/bhrigu-srivastava-48493294/' />
-              <SocialIcon kind="twitter" href='https://twitter.com/CaptainBhrigu' />
-            </div>
+          <h2 className="text-xl">Find me on: </h2>
+          <SocialIcon kind="mail" href="mailto:captain.bhrigu@gmail.com" />
+          <SocialIcon
+            kind="youtube"
+            href="https://www.youtube.com/channel/UCqgqCOWlxpYDPH5whE6mb3Q"
+          />
+          <SocialIcon kind="github" href="https://github.com/bhrigu123" />
+          <SocialIcon
+            kind="linkedin"
+            href="https://www.linkedin.com/in/bhrigu-srivastava-48493294/"
+          />
+          <SocialIcon kind="twitter" href="https://twitter.com/CaptainBhrigu" />
+        </div>
       </div>
     </section>
   )
