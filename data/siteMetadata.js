@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'Bhrigu\'s personal website and blog',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://bhrigu.me',
+  siteUrl: 'https://bhrigu.dev',
   siteRepo: 'https://github.com/bhrigu123/personal-website',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
@@ -40,7 +40,7 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    // provider: 'buttondown',
   },
   comments: {
     // If you want to use an analytics provider you have to add it to the
