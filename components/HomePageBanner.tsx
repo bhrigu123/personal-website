@@ -46,7 +46,7 @@ const IntroSection: React.FC = () => {
             the web and mobile. <br />
             <br />I also enjoy writing and I like venturing into productivity tools, routines, and
             habits. This website is just me with my thoughts and a medium for sharing my writings
-            around technology, development, and philosophies.
+            around technology, development, and philosophies. More about me in <Link href={'/about'}>About</Link> page.
           </p>
         </div>
         <div className="relative -mx-8">
