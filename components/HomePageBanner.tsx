@@ -41,13 +41,17 @@ const IntroSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="w-full lg:w-2/3">
           <h1 className="prose dark:prose-invert text-4xl font-bold mb-6">Hello 👋🏼</h1>
+          <p className="prose dark:prose-invert text-lg mb-4">
+            I am Bhrigu and I am a software engineer in Seattle. I like to build apps on the web and
+            mobile.
+          </p>
+          <p className="prose dark:prose-invert text-lg mb-4">
+            Some of the technologies I'm building with right now are React, NextJS, Flutter, Vercel,
+            and Firebase.
+          </p>
           <p className="prose dark:prose-invert text-lg mb-8">
-            I am Bhrigu and I am a software development engineer in Seattle. I like to build apps on
-            the web and mobile. <br />
-            <br />I also enjoy writing and I like venturing into productivity tools, routines, and
-            habits. This website is just me with my thoughts and a medium for sharing my writings
-            around technology, development, and philosophies. More about me in the{' '}
-            <Link href={'/about'}> About</Link> page.
+            I also enjoy writing. This website with my blog is a medium for sharing my thoughts and
+            learnings in my technical journey, and some life philosophies.
           </p>
         </div>
         <div className="relative -mx-8">
@@ -134,7 +138,7 @@ const IntroSection: React.FC = () => {
             kind="linkedin"
             href="https://www.linkedin.com/in/bhrigu-srivastava-48493294/"
           />
-          <SocialIcon kind="twitter" href="https://twitter.com/CaptainBhrigu" />
+          <SocialIcon kind="twitter" href="https://x.com/Bhrigu_Sr" />
         </div>
       </div>
     </section>

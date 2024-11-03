@@ -5,7 +5,7 @@ import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import HomePageBanner from '@/components/HomePageBanner'
 
-const MAX_DISPLAY = 3
+const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
   return (
