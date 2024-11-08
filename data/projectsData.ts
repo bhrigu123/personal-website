@@ -1,5 +1,11 @@
 const projectsData = [
   {
+    title: 'Collectio',
+    description: 'A NextJS app to create and share your collections',
+    imgSrc: '/static/images/projects/collectio.png',
+    href:'https://collectio.app'
+  },
+  {
     title: 'JEEQuery',
     description: `A stackoverflow like Q&A Application for engineering entrance 
     examinations in India. Active from 2015 to 2018`,
