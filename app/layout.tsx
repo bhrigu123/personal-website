@@ -11,6 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
+import Head from 'next/head'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -61,6 +62,17 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: [siteMetadata.socialBanner],
   },
+  icons: [
+    { rel: 'apple-touch-icon', sizes: '76x76', url: '/static/favicons/apple-touch-icon.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/static/favicons/icon-32.jpg' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/static/favicons/icon-16.jpg' },
+    { rel: 'manifest', url: '/static/favicons/site.webmanifest' },
+    { rel: 'mask-icon', url: '/static/favicons/safari-pinned-tab.svg', color: '#5bbad5' },
+  ],
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000' },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -70,15 +82,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} ${jetbrainsMono.className} scroll-smooth`}
       suppressHydrationWarning
     >
-      <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
-      <link rel="manifest" href="/static/favicons/site.webmanifest" />
-      <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <Head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="7978b0fd-1c85-442e-a9a0-3c600bfa8e66"
+        ></script>
+      </Head>
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
