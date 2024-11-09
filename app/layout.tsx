@@ -68,11 +68,7 @@ export const metadata: Metadata = {
     { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/static/favicons/icon-16.jpg' },
     { rel: 'manifest', url: '/static/favicons/site.webmanifest' },
     { rel: 'mask-icon', url: '/static/favicons/safari-pinned-tab.svg', color: '#5bbad5' },
-  ],
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000' },
-  ],
+  ]
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -83,6 +79,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <Head>
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
         <script
           defer
           src="https://cloud.umami.is/script.js"

@@ -62,7 +62,7 @@ const IntroSection: React.FC = () => {
             className="flex space-x-4 overflow-x-scroll scrollbar-hide overflow-y-hidden scroll-smooth h-64 sm:h-56 md:h-64 px-4 md:px-8"
           >
             {images.map((image, index) => (
-              <Link href={image.link ?? '#'} key={index}>
+              <div key={index}>
                 <div
                   className="relative w-56 h-56 flex-shrink-0 transform hover:scale-105 transition-transform duration-300 ease-in-out"
                   style={{
@@ -79,8 +79,8 @@ const IntroSection: React.FC = () => {
                   <Image
                     src={image.src}
                     alt={image.alt}
-                    layout="fill"
-                    objectFit="cover"
+                    width={224}
+                    height={224}
                     className="rounded-lg shadow-lg"
                   />
                   {hoveredIndex === index && (
@@ -89,7 +89,7 @@ const IntroSection: React.FC = () => {
                     </div>
                   )}
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
           <button
