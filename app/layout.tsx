@@ -11,7 +11,8 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
-import Head from 'next/head'
+import Script from 'next/script'
+import type { Viewport } from 'next'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -68,7 +69,14 @@ export const metadata: Metadata = {
     { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/static/favicons/icon-16.jpg' },
     { rel: 'manifest', url: '/static/favicons/site.webmanifest' },
     { rel: 'mask-icon', url: '/static/favicons/safari-pinned-tab.svg', color: '#5bbad5' },
-  ]
+  ],
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -78,15 +86,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} ${jetbrainsMono.className} scroll-smooth`}
       suppressHydrationWarning
     >
-      <Head>
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="7978b0fd-1c85-442e-a9a0-3c600bfa8e66"
-        ></script>
-      </Head>
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
@@ -100,6 +99,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </SectionContainer>
         </ThemeProviders>
+        <Script
+          strategy="afterInteractive"
+          src="https://cloud.umami.is/script.js"
+          data-website-id={process.env.NEXT_UMAMI_ID}
+        />
       </body>
     </html>
   )

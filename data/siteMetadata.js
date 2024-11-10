@@ -13,7 +13,7 @@ const siteMetadata = {
   mastodon: '',
   email: 'captain.bhrigu@gmail.com',
   github: 'https://github.com/bhrigu123',
-  twitter: 'https://twitter.com/CaptainBhrigu',
+  twitter: 'https://x.com/Bhrigu_Sr',
   facebook: '',
   youtube: 'https://www.youtube.com/channel/UCqgqCOWlxpYDPH5whE6mb3Q',
   linkedin: 'https://www.linkedin.com/in/bhrigu-srivastava-48493294/',
