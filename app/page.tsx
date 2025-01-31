@@ -5,7 +5,7 @@ import { permanentRedirect } from 'next/navigation'
 import { headers } from 'next/headers'
 
 export default async function Page() {
-  const header = headers()
+  const header = await headers()
   if (header.get('host') === 'bhrigu.me') {
     permanentRedirect('https://bhrigu.dev')
   }

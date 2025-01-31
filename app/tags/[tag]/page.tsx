@@ -1,5 +1,5 @@
 import { slug } from 'github-slugger'
-import { allCoreContent } from 'pliny/utils/contentlayer'
+import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allBlogs } from 'contentlayer/generated'
@@ -7,8 +7,13 @@ import tagData from 'app/tag-data.json'
 import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
 
-export async function generateMetadata({ params }: { params: { tag: string } }): Promise<Metadata> {
-  const tag = params.tag
+const POSTS_PER_PAGE = 5
+
+export async function generateMetadata(props: {
+  params: Promise<{ tag: string }>
+}): Promise<Metadata> {
+  const params = await props.params
+  const tag = decodeURI(params.tag)
   return genPageMetadata({
     title: tag,
     description: `${siteMetadata.title} ${tag} tagged content`,
@@ -24,20 +29,31 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
 export const generateStaticParams = async () => {
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
-  const paths = tagKeys.map((tag) => ({
-    tag: tag,
+  return tagKeys.map((tag) => ({
+    tag: encodeURI(tag),
   }))
-  return paths
 }
 
-export default function TagPage({ params }: { params: { tag: string } }) {
-  const { tag } = params
-  // Capitalize first letter and convert space to dash
+export default async function TagPage(props: { params: Promise<{ tag: string }> }) {
+  const params = await props.params
+  const tag = decodeURI(params.tag)
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
   const filteredPosts = allCoreContent(
-    allBlogs.filter(
-      (post) => post.draft !== true && post.tags && post.tags.map((t) => slug(t)).includes(tag)
-    )
+    sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
   )
-  return <ListLayout posts={filteredPosts} title={title} />
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
+  const initialDisplayPosts = filteredPosts.slice(0, POSTS_PER_PAGE)
+  const pagination = {
+    currentPage: 1,
+    totalPages: totalPages,
+  }
+
+  return (
+    <ListLayout
+      posts={filteredPosts}
+      initialDisplayPosts={initialDisplayPosts}
+      pagination={pagination}
+      title={title}
+    />
+  )
 }
