@@ -9,6 +9,7 @@ import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { ShareOnXButton } from '@/components/ShareOnXButton'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -112,6 +113,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               )}
             </div>
             <footer>
+              <div className="pt-4 xl:pt-8 flex justify-center">
+                <ShareOnXButton size={5} path={path} />
+              </div>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
                 {tags && (
                   <div className="py-4 xl:py-8">

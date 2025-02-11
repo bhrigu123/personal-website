@@ -9,6 +9,7 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { ShareOnXButton } from '@/components/ShareOnXButton'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -46,6 +47,9 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
             </div>
           )}
           <footer>
+            <div className="pt-4 xl:pt-8 flex justify-center">
+              <ShareOnXButton size={5} path={slug} />
+            </div>
             <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
               {prev && prev.path && (
                 <div className="pt-4 xl:pt-8">

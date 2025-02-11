@@ -124,6 +124,7 @@ const IntroSection: React.FC = () => {
         </div>
         <div className="flex space-x-3 pt-6">
           <h2 className="text-xl">Find me on: </h2>
+          <SocialIcon kind="x" href="https://x.com/Bhrigu_Sr" />
           <SocialIcon kind="mail" href="mailto:captain.bhrigu@gmail.com" />
           <SocialIcon
             kind="youtube"
@@ -134,7 +135,7 @@ const IntroSection: React.FC = () => {
             kind="linkedin"
             href="https://www.linkedin.com/in/bhrigu-srivastava-48493294/"
           />
-          <SocialIcon kind="twitter" href="https://x.com/Bhrigu_Sr" />
+          <SocialIcon kind="instagram" href="https://www.instagram.com/bhrigu.dev/" />
         </div>
       </div>
     </section>

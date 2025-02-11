@@ -14,6 +14,8 @@ const siteMetadata = {
   email: 'captain.bhrigu@gmail.com',
   github: 'https://github.com/bhrigu123',
   twitter: 'https://x.com/Bhrigu_Sr',
+  x: 'https://x.com/Bhrigu_Sr',
+  instagram: 'https://www.instagram.com/bhrigu.dev/',
   facebook: '',
   youtube: 'https://www.youtube.com/channel/UCqgqCOWlxpYDPH5whE6mb3Q',
   linkedin: 'https://www.linkedin.com/in/bhrigu-srivastava-48493294/',
