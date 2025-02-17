@@ -39,15 +39,18 @@ const IntroSection: React.FC = () => {
   return (
     <section className="py-16 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-4/5">
           <h1 className="prose dark:prose-invert text-4xl font-bold mb-6">Hello, I am Bhrigu 👋🏼</h1>
           <p className="prose dark:prose-invert text-lg mb-4">
             I am a software engineer and writer who loves to build.
           </p>
           <p className="prose dark:prose-invert text-lg mb-8">
             I have a niche for productivity systems and stoic philosophies — both in how I work and
-            what I create. I love to write and share my philosophies on facing hardships, deep work,
-            and staying active.
+            what I create.
+          </p>
+          <p className="prose dark:prose-invert text-lg mb-8">
+            I love to write and share my philosophies on facing hardships, deep work, and staying
+            active.
           </p>
         </div>
         <div className="relative -mx-8">
