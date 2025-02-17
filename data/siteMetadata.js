@@ -8,7 +8,7 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://bhrigu.dev',
   siteRepo: 'https://github.com/bhrigu123/personal-website',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/images/laptop-coffee.jpeg',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: '',
   email: 'captain.bhrigu@gmail.com',
