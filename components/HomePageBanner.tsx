@@ -50,9 +50,9 @@ const IntroSection: React.FC = () => {
           </p>
           <p className="prose dark:prose-invert text-lg mb-8">
             I love to write and share my philosophies on facing hardships, deep work, and staying
-            active. You can find my writings and projects on my website here. You can also subscribe
-            to my newsletter (link at the bottom of the page) to get updates on my latest writings
-            and thoughts.
+            active. Here you will find my latest writings and projects. If you like, you can also
+            subscribe to my newsletter to get updates on my newest insights (Link at the bottom of
+            the page and expect around 1-2 emails per month).
           </p>
         </div>
         <div className="relative -mx-8">
