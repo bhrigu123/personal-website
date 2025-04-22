@@ -1,5 +1,11 @@
 const projectsData = [
   {
+    title: 'Ship Notes',
+    description: `Publish your development journey`,
+    imgSrc: '/static/images/ship-notes-banner.png',
+    href: 'https://shipnotes.app',
+  },
+  {
     title: 'Collectio',
     description: `Create shareable collections. Show what inspires you.`,
     imgSrc: '/static/images/collectio-home.png',
