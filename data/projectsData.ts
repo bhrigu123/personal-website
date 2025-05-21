@@ -1,5 +1,11 @@
 const projectsData = [
   {
+    title: 'Vakya',
+    description: `A perfect writer for people who manage their blogs via web frameworks (like Next.js)`,
+    imgSrc: '/static/images/vakya.png',
+    href: 'https://getvakya.app',
+  },
+  {
     title: 'Ship Notes',
     description: `Publish your development journey`,
     imgSrc: '/static/images/ship-notes-banner.png',
