@@ -1,3 +1,5 @@
 {
-  "postsPath": "data\/blog"
+  "postsPath": "data\/blog",
+  "fontName": "NewYorkMedium-Regular",
+  "fontSize": 20
 }
