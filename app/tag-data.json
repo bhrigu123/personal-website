@@ -1,9 +1,9 @@
 {
-  "journal": 9,
+  "journal": 10,
   "life": 5,
-  "books": 3,
   "programming": 4,
-  "projects": 7,
+  "books": 3,
+  "projects": 8,
   "django": 1,
   "music": 1,
   "productivity": 4,
