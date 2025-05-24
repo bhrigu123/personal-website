@@ -1,5 +1,11 @@
 const projectsData = [
   {
+    title: 'TimeCraft',
+    description: `Track if you're spending enough time on the important things every day`,
+    imgSrc: '/static/images/timecraft-icon.png',
+    href: 'https://github.com/bhrigu123/TimeCraft',
+  },
+  {
     title: 'Vakya',
     description: `A perfect writer for people who manage their blogs via web frameworks (like Next.js)`,
     imgSrc: '/static/images/vakya.png',
