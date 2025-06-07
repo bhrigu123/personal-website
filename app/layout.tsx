@@ -1,7 +1,10 @@
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 
-import { Space_Grotesk } from 'next/font/google'
+// 🎨 UPDATE THESE IMPORTS WHEN CHANGING FONTS IN tailwind.config.js
+import { Roboto_Serif } from 'next/font/google' // For FONTS.content.name
+import { JetBrains_Mono } from 'next/font/google' // For FONTS.code.name
+
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -10,16 +13,17 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
-import { JetBrains_Mono } from 'next/font/google'
 import Script from 'next/script'
 import type { Viewport } from 'next'
 
-const space_grotesk = Space_Grotesk({
+// Main content font (matches FONTS.content in tailwind.config.js)
+const roboto_serif = Roboto_Serif({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-space-grotesk',
+  variable: '--font-roboto-serif', // Must match FONTS.content.variable
 })
 
+// Code font (matches FONTS.code in tailwind.config.js)
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
@@ -83,7 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang={siteMetadata.language}
-      className={`${space_grotesk.variable} ${jetbrainsMono.className} scroll-smooth`}
+      className={`${roboto_serif.variable} ${jetbrainsMono.className} scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
