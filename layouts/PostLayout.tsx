@@ -10,6 +10,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { ShareOnXButton } from '@/components/ShareOnXButton'
+import AuthorBox from '@/components/author-box'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -96,6 +97,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="prose prose-base md:prose-lg max-w-none pb-8 pt-10 dark:prose-invert">
                 {children}
               </div>
+              <AuthorBox />
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(path)} rel="nofollow">
                   Discuss on Twitter

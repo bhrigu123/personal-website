@@ -42,17 +42,17 @@ const IntroSection: React.FC = () => {
         <div className="w-full lg:w-4/5">
           <h1 className="prose dark:prose-invert text-4xl font-bold mb-6">Hello, I am Bhrigu 👋🏼</h1>
           <p className="prose dark:prose-invert text-lg mb-4">
-            I am a software engineer and writer who loves to build.
+            I am a software engineer who loves to build and write.
           </p>
           <p className="prose dark:prose-invert text-lg mb-8">
-            I have a niche for productivity systems and stoic philosophies — both in how I work and
-            what I create.
+            I started programming in middle school and never stopped. It gives me joy to create
+            something out of code.
           </p>
           <p className="prose dark:prose-invert text-lg mb-8">
-            I love to write and share my philosophies on facing hardships, deep work, and staying
-            active. Here you will find my latest writings and projects. If you like, you can also
-            subscribe to my newsletter to get updates on my newest insights (Link at the bottom of
-            the page and expect around 1-2 emails per month).
+            Here, you'll find my latest writings and projects. I write about tech, philosophy,
+            books, or anything that sparks my curiosity. If you'd like, you can subscribe to my
+            newsletter at the bottom of the page to get updates on new insights (usually 1–2 emails
+            a month).
           </p>
         </div>
         <div className="relative -mx-8">
