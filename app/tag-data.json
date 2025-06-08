@@ -1,16 +1,16 @@
 {
-  "ai": 2,
+  "journal": 9,
+  "life": 5,
+  "programming": 4,
   "books": 3,
-  "stories": 1,
-  "journal": 10,
+  "ai": 2,
+  "projects": 7,
+  "django": 1,
+  "music": 1,
+  "productivity": 4,
+  "poem": 1,
+  "photography": 1,
   "rag": 1,
   "firebase": 1,
-  "programming": 4,
-  "poem": 1,
-  "projects": 8,
-  "life": 5,
-  "productivity": 4,
-  "music": 1,
-  "photography": 1,
-  "django": 1
+  "stories": 1
 }
