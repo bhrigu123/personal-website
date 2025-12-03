@@ -21,7 +21,7 @@ const projectsData = [
     title: 'Collectio',
     description: `Create shareable collections. Show what inspires you.`,
     imgSrc: '/static/images/collectio-home.png',
-    href: 'https://collectio.app',
+    href: 'https://collections-bhrigu123s-projects.vercel.app',
   },
   {
     title: 'JEEQuery',
